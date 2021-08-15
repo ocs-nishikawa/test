@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>グラフ表示画面</title>
+        <style>
+        .back_button {
+            width: 80px;
+            height: 30px;
+            font-size: 17px;
+            border-radius: 20px;
+            background-color: lightgreen;
+        }
+        #gear {
+            position: absolute;
+            right: 10px;
+            display:  inline-block;
+        }
+        h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-top: 30px;
+        }
+        #calendar {
+            position: absolute;
+            top: 50%;
+            right: 60px;
+        }
+        </style>
+    </head>
+    <body>
+        <button class="back_button" onclick="location.href='./select.html'">戻る</button>
+        <div id="gear">
+            <a href="setting.html"><img src="./images/gear.png" alt="設定画面に遷移" width="40px" height="40px"></a>
+        </div>
+        <h2>(教室名)</h2>
+        <div id="calendar">
+            <input type="date" name="today" id="today"></input>
+        </div>
+        <div id="now"></div>
+        <script>
+            var today=new Date(); 
+            today.setDate(today.getDate());
+            var year = today.getFullYear();
+            var month = ("0"+(today.getMonth()+1)).slice(-2);
+            var day = ("0"+today.getDate()).slice(-2);
+            document.getElementById("today").value = year + '-' + month + '-' + day; 
+        </script>
+
+    </body>
+</html>
