@@ -87,7 +87,7 @@
 {% block body %}
     <button id="back_button" onclick="history.back()">戻る</button>
     <h2>設定</h2>
-    <form action="" method="post">
+    <form action="{% url 'setting' %}" method="post">
         <div id="overall">
             <div id="left">
                 <p><label>・<input type="text" name="ppm" size=8 maxlength="4" 

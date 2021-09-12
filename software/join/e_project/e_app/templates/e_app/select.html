@@ -52,7 +52,7 @@
     }
     #list {
         position: absolute;
-        top: 13%;
+        top: 20%;
         left: 15%;
         transform : translate(-50%,-50%); 
     }
@@ -85,7 +85,38 @@
     <h2>教室一覧</h2>
     <div id="scroll">
         <div id="list">
-            <p><button id="new_classroom" onclick=location.href='{% url "classroom" %}'>+</button></p>
+            <!--<p><button id="new_classroom" onclick=location.href='{% url "classroom" %}'>+</button></p>-->
+
+            <form action="{% url 'select' %}" method="post">
+                {% csrf_token %}
+
+                        {% if not params2 %}
+
+                    {% for value in params %}
+                    <div style="text-align: center; margin-top:10%;">
+                    <input type="submit" class="{{ value }}" name="{{ value }}" style="width:150px;height: 80px;pedding:10px;font-size:30px;"
+                        value="{{ value }}">
+                    </div>
+                    {% endfor %}
+
+                {% else %}
+
+                    {% for value in params %}
+                    <div style="text-align: center; margin-top:10%;">
+                    <input type="submit" class="{{ value }}" name="{{ value }}" style="width:150px;height: 80px;pedding:10px;font-size:30px;"
+                        value="{{ value }}">
+                    </div>
+                    {% endfor %}
+                    
+                    {% for value2 in params2 %}
+                    <div style="text-align: center; margin-top:10%;">
+                    <input type="submit" class="{{ value2 }}" style="width:150px;height: 80px;pedding:10px;font-size:30px;background-color:red;"
+                    </div>
+                    {% endfor %}
+
+                {% endif %}
+
+            </form>
         </div>
     </div>
     <p><a id="a1" href='{% url "plot" %}'>グラフ表示画面へ</a></p>
