@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>警告</title>
+        <style>
+            body {
+                text-align: center;
+                font-size: 25px;
+                line-height: 60px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform : translate(-50%,-50%);
+                transform : translate(-50%,-50%);
+                background-image: url("./images/keepout.png");
+            }
+            h2 {
+                color: #FF2D2D;
+            }
+            #btn {
+                border: none;
+                background-color: #D0CFCF;
+                width: 80px;
+                height: 30px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 30px;
+                color: #696969;
+                text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182CA, 0px 2px 0px #4F6AA7, 0px 3px 0px #5470AD;
+            }
+            #btn:active {
+                top: 4px;
+                text-shadow: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="img"></div>
+        <h2> ログインに失敗しました。</h2>
+        <p><button id="btn" onclick="location.href='./login.html'">OK</button></p>
+    </body>
+</html>

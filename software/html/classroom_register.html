@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>教室登録画面</title>
+        <style>
+            #back_button {
+                width: 80px;
+                height: 40px;
+                font-size: 20px;
+                border: none;
+                border-radius: 20px;
+                border-radius: 6px;
+                background-repeat: no-repeat;
+                background-position: 100% 0;
+                background-size: 200% auto;
+                background-image: linear-gradient(
+                    to right,
+                    #FFE500 0%,
+                    #FFE500 50%,
+                    #79C06E 50%,
+                    #79C06E 100%
+                );
+                box-shadow: 0 3px 10px rgb(0 0 0 / 16%);
+                transition: background-position ease 0.4s;
+                color: #FFFFFF;
+                text-decoration: none;
+            }
+            #back_button:hover {
+                background-position: 0 0;
+            }
+            h2 {
+                font-size: 35px;
+                position: absolute;
+                top: 15%;
+                left: 50%;
+                -webkit-transform : translate(-50%,-50%);
+                transform : translate(-50%,-50%);
+            }
+            #overall {
+                width: 660px;
+                height: 300px;
+                position: absolute;
+                top: 28%;
+                left: 50%;
+                margin-left: -330px;
+                background-color:rgba(255,255,255,.8);
+                box-shadow:0 0 .25em rgba(0,0,0,.25);
+                box-sizing:border-box; 
+            }
+            #right {
+                width: 500px;
+                text-align: right;
+                font-size: 25px;
+                line-height: 45px;
+                position: absolute;
+                top: 40%;
+                left: 47%;
+                -webkit-transform : translate(-50%,-50%);
+                transform : translate(-50%,-50%);
+            }
+            #center {
+                text-align: center;
+                position: absolute;
+                top: 80%;
+                left: 50%;
+                -webkit-transform : translate(-50%,-50%);
+                transform : translate(-50%,-50%);    
+            }
+            .btn {
+                border: none;
+                font-weight: 700;
+                padding-top: 4.5px;
+                -webkit-transition: all 0.2s;
+                transition: all 0.2s;
+                vertical-align: middle;
+                letter-spacing: 1.5px;
+                border-radius: 5px;
+            }
+            .btn--color {
+                color: #FFFFFF;
+                background-color: #339EBF;
+                border-bottom: 5px solid #2D91AF;
+            }
+            .btn--color:hover {
+                margin-top: 6px;
+                color: #FFFFFF;
+                background-color: #34A5CA;
+                border-bottom: 2px solid #2D91AF;
+            }
+            .btn--shadow {
+                -webkit-box-shadow: 0 1.5px 2.5px rgba(0, 0, 0, .3);
+                box-shadow: 0 1.5px 2.55px rgba(0, 0, 0, .3);
+            }
+        </style>
+    </head>
+    <body>
+        <button id="back_button" onclick="history.back()">戻る</button>
+        <h2>教室登録</h2>
+        <form action="" method="post">
+            <div id="overall">
+                <div id="right">
+                    <p><label>教室名:<input type="text" name="classroomName" size=25 maxlength="5" required 
+                    style="font-size: 25px; height: 30px;"></label></p>
+                    <p><label>機器番号:<input type="text" name="machineNumber" size=25 maxlength="10" required 
+                    style="font-size: 25px; height: 30px;"></label></p>
+                </div>    
+                <div id="center">    
+                    <input type="submit" class="btn btn--color btn--shadow" value="登録" style="width: 110px; height: 305x; font-size: 17px;">
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

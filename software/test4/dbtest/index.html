@@ -1,0 +1,12 @@
+<html>
+    <title>Index</title>
+    <body>
+        <h1>index.html</h1>
+        <div>
+            {% for db_record in db_records %}
+            {{ db_record.id }}
+            {{ db_record.db_text_column }}
+            {{ db_record.db_num_column }}
+            {% endfor %}            
+    </body>
+</html>
