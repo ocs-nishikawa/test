@@ -43,11 +43,11 @@ def login_view(request , *args , **kwargs):
             # ユーザー認証失敗
             return HttpResponse("ログインIDまたはパスが間違ってます")
     else:
-        return render (request , "login.html" , {} )
+        return render (request , "e_app/login.html" , {} )
 
 
 def login_failed_view(requst , *args , **kwargs):
-    return render(requst , "login_failed.html" , {}) 
+    return render(requst , "e_app/login_failed.html" , {}) 
 
 @login_required
 def logout(request):
@@ -55,7 +55,7 @@ def logout(request):
     return redirect("/")
 
 def login_failed_view(requst , *args , **kwargs):
-    return render(requst , "login_failed.html" , {}) 
+    return render(requst , "e_app/login_failed.html" , {}) 
 
 
 # のむへ
@@ -101,7 +101,7 @@ def line_charts(requests):
     return fig.to_html(include_plotlyjs=False)
 
 class LineChartsView(TemplateView):
-    template_name = "plot.html"
+    template_name = "e_app/plot.html"
 
     def get_context_data(self, **kwargs):
         ctx = super(LineChartsView, self).get_context_data(**kwargs)
@@ -109,7 +109,7 @@ class LineChartsView(TemplateView):
         return ctx
 
 class SettingView(TemplateView): #設定画面
-    template_name = "setting.html"
+    template_name = "e_app/setting.html"
 
     def post(self, requests):
 
@@ -118,20 +118,20 @@ class SettingView(TemplateView): #設定画面
                 requests.session['ppm'] = requests.POST['Ppm']
                 requests.session['start_time'] = requests.POST['StartTime']
                 requests.session['end_time'] = requests.POST['EndTime']
-                return render(requests,"classroom_register.html",{})
+                return render(requests,"e_app/classroom_register.html",{})
 
 class ClassroomView(TemplateView): #教室登録画面
-    template_name = "classroom_register.html"
+    template_name = "e_app/classroom_register.html"
 
     def post(self, requests): #
         if requests.method == 'POST':
             if 'btnregister' in requests.POST: #ボタンを押されたときデータベースに教室名と機器番号を登録する
                 saveclass = Classroom_Table(classroom_name=requests.POST['classroomName'], user_id = 1, equipment_number=requests.POST['machineNumber'])
                 saveclass.save()
-                return render(requests , "setting.html" ,{})
+                return render(requests , "e_app/setting.html" ,{})
 
 class SelectView(TemplateView): #教室選択画面
-    template_name = "select.html"
+    template_name = "e_app/select.html"
 
     def get_context_data(self, **kwargs): #基準値を超えない教室を得る
         m2 = 0
