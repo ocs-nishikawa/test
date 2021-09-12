@@ -1,0 +1,101 @@
+{% extends './base.html' %}
+{% block title %}
+    教室選択画面
+{% endblock %}
+{% block style %}
+    #logout {
+        width: 110px;
+        height: 40px;
+        font-size: 17px;
+        font-weight: 550;
+        border-bottom: none;
+        border-width: 1.5px;
+        border-color: #111111;
+        color: #FFFFFF;
+        background-color: #FF5050;
+        box-shadow: 0 4px 0 #111111;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    #logout:hover {
+        background-color: #FF3838;
+    }
+    #logout:active {
+        top: 14px;
+        box-shadow: 0 2.5px 0 #111111;
+    }  
+    #gear {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    #gear--move {
+        transition: 1s;
+    }
+    #gear--move:hover {
+        transform: rotateZ(180deg);
+    }
+    h2 {
+        font-size: 35px;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform : translate(-50%,-50%);
+    }
+    #scroll {
+        height: 450px;
+        width: 1200px;
+        overflow-y: auto;
+        position: absolute;
+        top: 100px;
+    }
+    #list {
+        position: absolute;
+        top: 13%;
+        left: 15%;
+        transform : translate(-50%,-50%); 
+    }
+    #new_classroom {
+        width: 150px;
+        height: 80px;
+        color: #FF0000;
+        background-color: #FFFFFF;
+        border-style: dashed; 
+    }
+    #new_classroom:hover {
+        background-color: #FFFF00;
+    }
+    #a1 {
+        text-align: center;
+        font-size: 25px;
+        position: absolute;
+        top: 82%;
+        left: 50%;
+        transform : translate(-50%,-50%); 
+    }    
+{% endblock %}
+{% block body %}
+    <button id="logout" onclick="disp()">ログアウト</button>
+    <div id="gear">
+        <a href='{% url "setting" %}'>
+        {% load static %}
+        <img id="gear--move" src="{% static "e_app/gear.png" %}" alt="設定画面に遷移" width="45px" height="45px"></a>
+    </div>
+    <h2>教室一覧</h2>
+    <div id="scroll">
+        <div id="list">
+            <p><button id="new_classroom" onclick=location.href='{% url "classroom" %}'>+</button></p>
+        </div>
+    </div>
+    <p><a id="a1" href='{% url "plot" %}'>グラフ表示画面へ</a></p>
+    <script>
+        function disp(){
+            if(window.confirm('ログアウトしますか？')){
+                location.href='{% url "login" %}'; 
+            }else{
+                window.alert('キャンセルされました'); 
+            }
+        }
+    </script>
+{% endblock %}

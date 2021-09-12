@@ -1,0 +1,109 @@
+{% extends './base.html' %}
+{% block title %}
+    設定画面
+{% endblock %}
+{% block style %}
+    #back_button {
+        width: 80px;
+        height: 40px;
+        font-size: 20px;
+        border: none;
+        border-radius: 20px;
+        border-radius: 6px;
+        background-repeat: no-repeat;
+        background-position: 100% 0;
+        background-size: 200% auto;
+        background-image: linear-gradient(
+            to right,
+            #FF8635 0%,
+            #FF8635 50%,
+            #FF8CEB 50%,
+            #FF8CEB 100%
+        );
+        box-shadow: 0 3px 10px rgb(0 0 0 / 16%);
+        transition: background-position ease 0.4s;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    #back_button:hover {
+        background-position: 0 0;
+    }
+    h2 {
+        font-size: 35px;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform : translate(-50%,-50%);
+    }
+    #overall {
+        width: 700px;
+        height: 300px;
+        position: absolute;
+        top: 28%;
+        left: 50%;
+        margin-left: -350px;
+        background-color: #D7EEFF;
+    }
+    #left {
+        width: 500px;
+        font-size: 17px;
+        text-align: left;
+        line-height: 45px;
+        position: absolute;
+        top: 110px;
+        left: 350px;
+        transform : translate(-50%,-50%);     
+    }
+    #center {
+        position: absolute;
+        top: 225px;
+        left: 350px;
+        transform : translate(-50%,-50%); 
+    }
+    .btn {
+        border: none;
+        font-weight: 700;
+        padding-top: 4.5px;
+        transition: all 0.2s;
+        vertical-align: middle;
+        letter-spacing: 1.5px;
+        border-radius: 5px;
+    }
+    .btn--color {
+        color: #FFFFFF;
+        background-color: #4C4CFE;
+        border-bottom: 5px solid #0000BF;
+    }
+    .btn--color:hover {
+        margin-top: 6px;
+        color: #FFFFFF;
+        background-color: #6565FF;
+        border-bottom: 2px solid #0000BF;
+    }
+    .btn--shadow {
+        box-shadow: 0 1.5px 2.55px rgba(0, 0, 0, .3);
+    }
+{% endblock %}
+{% block body %}
+    <button id="back_button" onclick="history.back()">戻る</button>
+    <h2>設定</h2>
+    <form action="" method="post">
+        <div id="overall">
+            <div id="left">
+                <p><label>・<input type="text" name="ppm" size=8 maxlength="4" 
+                pattern="[0-9]{1,4}" title="数字を入力して下さい。" required 
+                style="font-size: 17px; text-align:right; height: 20px;"></label>
+                ppmを越えたら警告を通知する。</p>
+                <p><label>・<input type="text" name="" size=8 maxlength="2" 
+                pattern="[0-9]{1,2}" title="数字を入力して下さい。" required 
+                style="font-size: 17px; text-align:right; height: 20px;"></label> 時から
+                <input type="text" name="" size=8 maxlength="2" 
+                pattern="[0-9]{1,2}" title="数字を入力して下さい。" required 
+                style="font-size: 17px; text-align:right; height: 20px;"> 時までのデータを表示</p>
+            </div>
+            <div id="center">
+                <input type="submit" class="btn btn--color btn--shadow" value="保存" style="width: 110px; height: 35px; font-size: 17px;">
+            </div>
+        </div>
+    </form>
+{% endblock %}
